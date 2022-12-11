@@ -18,8 +18,8 @@ export function Header({ menu }: Props) {
         <Heading size={headerSize} whiteSpace="nowrap">
           Jhon Salazar
         </Heading>
+        {menu}
       </Box>
-      {menu}
     </Box>
   );
 }
