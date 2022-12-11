@@ -17,12 +17,12 @@ import { Header } from "../Header";
 import { SolidDivider } from "../SolidDivider";
 
 interface Props {
-  children: ReactNode;
-  menu: ReactNode;
-  sidebar?: ReactNode;
+  children: JSX.Element | JSX.Element[];
+  menu: JSX.Element;
+  sidebar?: JSX.Element;
 }
 
-export function Layout({ children, sidebar, menu }: Props): JSX.Element {
+export function Layout({ children, sidebar, menu }: Props) {
   const [showHeader, setShowHeader] = useState(false);
   const borderColor = useColorModeValue("gray.800", "#fafafa");
   const headerBg = useColorModeValue("#fafafa", "gray.800");
@@ -104,8 +104,8 @@ export function Layout({ children, sidebar, menu }: Props): JSX.Element {
         </Slide>
         <Header menu={menu} />
         <SolidDivider />
-        {children}
       </Box>
+      {children}
     </Container>
   );
 }

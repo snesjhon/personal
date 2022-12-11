@@ -2,9 +2,9 @@ import { Box, Heading, useBreakpointValue } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface Props {
-  menu: ReactNode;
+  menu: JSX.Element;
 }
-export function Header({ menu }: Props): JSX.Element {
+export function Header({ menu }: Props) {
   const headerSize = useBreakpointValue({ base: "3xl", xs: "4xl" });
 
   return (
@@ -18,8 +18,8 @@ export function Header({ menu }: Props): JSX.Element {
         <Heading size={headerSize} whiteSpace="nowrap">
           Jhon Salazar
         </Heading>
-        {menu}
       </Box>
+      {menu}
     </Box>
   );
 }

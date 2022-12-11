@@ -20,7 +20,6 @@ export {
   WebflowIcon,
   WebpackIcon,
   WordpressIcon,
-  Wrapper,
   Footer,
 } from "./components";
-export { debounce } from "./helpers";
+export { debounce, theme } from "./helpers";

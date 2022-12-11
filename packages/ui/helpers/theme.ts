@@ -1,11 +1,10 @@
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import React from "react";
+import { extendTheme } from "@chakra-ui/react";
 
 interface ColorMode {
   colorMode: "light" | "dark";
 }
 
-const customTheme = extendTheme({
+export const theme = extendTheme({
   components: {
     Heading: {
       baseStyle: ({ colorMode }: ColorMode) => ({
@@ -66,7 +65,7 @@ const customTheme = extendTheme({
     },
   },
   styles: {
-    global: (props) => ({
+    global: (props: any) => ({
       body: {
         fontFamily: "'Open Sans', sans-serif",
         background: props.colorMode === "light" ? "#fafafa" : "gray.800",
@@ -101,12 +100,3 @@ const customTheme = extendTheme({
     }),
   },
 });
-
-interface Props {
-  children: React.ReactNode;
-}
-
-export function Wrapper(props: Props): JSX.Element {
-  const { children } = props;
-  return <ChakraProvider theme={customTheme}>{children}</ChakraProvider>;
-}

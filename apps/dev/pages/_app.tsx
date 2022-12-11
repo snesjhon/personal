@@ -1,7 +1,8 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
-import { Wrapper } from "ui";
+import { theme } from "ui";
 
 const TITLE = "Home";
 const DESCRIPTION = "snesjhon home";
@@ -20,9 +21,9 @@ export default function GlobalApp({
         <meta name="description" content={DESCRIPTION} />
         <title>{`${TITLE} | Jhon Salazar`}</title>
       </Head>
-      <Wrapper>
+      <ChakraProvider theme={theme}>
         <Component {...pageProps} />
-      </Wrapper>
+      </ChakraProvider>
     </>
   );
 }
