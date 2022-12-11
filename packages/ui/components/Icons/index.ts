@@ -1,26 +1,19 @@
 export {
-  About,
-  ChakraIcon,
   CSSIcon,
+  ChakraIcon,
   DockerIcon,
   FirebaseIcon,
   GithubIcon,
-  Header,
   HTMLIcon,
   InstagramIcon,
   JavaScriptIcon,
-  Layout,
   PythonIcon,
   ReactIcon,
   ReduxIcon,
-  SolidDivider,
   SQLIcon,
   TwitterIcon,
   TypeScriptIcon,
   WebflowIcon,
   WebpackIcon,
   WordpressIcon,
-  Wrapper,
-  Footer,
-} from "./components";
-export { debounce } from "./helpers";
+} from "./Icons";
