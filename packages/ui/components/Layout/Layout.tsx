@@ -104,8 +104,8 @@ export function Layout({ children, sidebar, menu }: Props) {
         </Slide>
         <Header menu={menu} />
         <SolidDivider />
+        {children}
       </Box>
-      {children}
     </Container>
   );
 }
