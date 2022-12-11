@@ -1,17 +1,18 @@
 import {
   Box,
-  Button,
-  Heading,
   Image,
   Spinner,
   Square,
-  Text,
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-export function About() {
+interface Props {
+  children: JSX.Element | JSX.Element[];
+  imageText?: boolean;
+}
+export function Hero({ children, imageText = false }: Props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const beforeItem = useBreakpointValue({
     base: "-10%",
@@ -54,16 +55,20 @@ export function About() {
             zIndex: 0,
             opacity: isLoaded ? 1 : 0,
           }}
-          _after={{
-            content: "'About me'",
-            position: "absolute",
-            top: afterItemTop,
-            right: afterItemRight,
-            backgroundColor: borderColor,
-            padding: 2,
-            zIndex: 1,
-            opacity: isLoaded ? 1 : 0,
-          }}
+          _after={
+            imageText
+              ? {
+                  content: "'About me'",
+                  position: "absolute",
+                  top: afterItemTop,
+                  right: afterItemRight,
+                  backgroundColor: borderColor,
+                  padding: 2,
+                  zIndex: 1,
+                  opacity: isLoaded ? 1 : 0,
+                }
+              : undefined
+          }
         >
           <Image
             alt="Avatar"
@@ -84,32 +89,7 @@ export function About() {
         </Box>
       </Box>
       <Box pt={{ base: 20, md: 10, lg: 20 }} pl={{ base: 6, sm: 10, md: 0 }}>
-        <Box pb={6}>
-          <Heading size="xl" mb={4}>
-            Software Engineer
-          </Heading>
-          <Heading
-            position="relative"
-            size="xl"
-            _before={{ content: "'+'", position: "absolute", left: "-2rem" }}
-          >
-            Music Enthusiast
-          </Heading>
-        </Box>
-        <Text>
-          I specialize in creating and maintaining complex UI infrastructure. Oh
-          yea, I also collect vinyls and love learning new things on youtube at
-          4am.
-        </Text>
-        <br />
-        <Button
-          as="a"
-          href="mailto:snesjhon@gmail?subject=Hey Jhon Let's Talk"
-          target="_blank"
-          variant="cyan700"
-        >
-          Get in touch
-        </Button>
+        {children}
       </Box>
     </Box>
   );

@@ -1,5 +1,5 @@
 export {
-  About,
+  Hero,
   ChakraIcon,
   CSSIcon,
   DockerIcon,

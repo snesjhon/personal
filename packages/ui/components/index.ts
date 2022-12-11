@@ -1,6 +1,6 @@
 export { Layout } from "./Layout";
 export { Header } from "./Header";
-export { About } from "./About";
+export { Hero } from "./Hero";
 export { SolidDivider } from "./SolidDivider";
 export { Footer } from "./Footer";
 export {
