@@ -2,17 +2,16 @@ import {
   Box,
   Button,
   Heading,
-  Img,
+  Image,
   Spinner,
   Square,
   Text,
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export function About() {
-  const imageRef = useRef<HTMLImageElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const beforeItem = useBreakpointValue({
     base: "-10%",
@@ -30,12 +29,6 @@ export function About() {
     md: "-30%",
   });
   const borderColor = useColorModeValue("#fafafa", "gray.800");
-
-  useEffect(() => {
-    if (!isLoaded && imageRef.current?.complete) {
-      setIsLoaded(true);
-    }
-  }, [isLoaded]);
 
   return (
     <Box
@@ -72,12 +65,7 @@ export function About() {
             opacity: isLoaded ? 1 : 0,
           }}
         >
-          {!isLoaded && (
-            <Square>
-              <Spinner />
-            </Square>
-          )}
-          <Img
+          <Image
             alt="Avatar"
             src="/images/myavatar.jpg"
             border="1px solid"
@@ -86,7 +74,11 @@ export function About() {
             zIndex={3}
             borderRadius="5px"
             position="relative"
-            ref={imageRef}
+            fallback={
+              <Square>
+                <Spinner />
+              </Square>
+            }
             onLoad={() => setIsLoaded(true)}
           />
         </Box>
